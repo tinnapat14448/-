@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--brown:#68452e;--brown-dark:#3e2b20;--cream:#fbf5e9;--cream-deep:#f3e5ce;--caramel:#bd8655;--green:#77933d;--green-dark:#5d762b;--ink:#332a23;--muted:#8b7b6a;--line:#eadbc7;--white:#fffdf9;--shadow:0 10px 28px rgba(89,57,29,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,"Noto Sans Thai",Tahoma,sans-serif;font-size:15px;line-height:1.55}button,input,select,textarea{font:inherit}button{touch-action:manipulation}
+header{position:relative;overflow:hidden;text-align:center;padding:34px 16px 30px;background:radial-gradient(ellipse at 10% 0%,#fffdf6 0%,transparent 42%),linear-gradient(135deg,#f5e3c6,#fffaf0 55%,#ead4b4);border-bottom:1px solid #e6d1b2}
+header:after{content:"";position:absolute;width:250px;height:250px;border:1px solid #d9bd96;border-radius:50%;right:-100px;top:-135px;opacity:.5;pointer-events:none}.brand-mark{display:inline-grid;place-items:center;width:58px;height:58px;border-radius:20px;background:#fffaf1;box-shadow:0 5px 18px #70432316;font-size:31px;border:1px solid #ead6b8}.eyebrow{margin:12px 0 0;color:#9a704c;font-size:11px;font-weight:800;letter-spacing:3px}h1{margin:0;color:var(--brown);font-size:clamp(34px,5vw,48px);letter-spacing:.02em;line-height:1.2}.header-tagline{margin:8px 0 0;color:#7e6148;font-size:15px}.header-contact{display:inline-flex;align-items:center;gap:7px;margin-top:14px;background:#fffaf2;border:1px solid #ead6b8;border-radius:999px;padding:7px 14px;color:#6e4c30;font-size:13px}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 20px 60px}.hero{display:grid;grid-template-columns:1.1fr .9fr;min-height:230px;overflow:hidden;border-radius:24px;background:#47352a;color:#fff8ed;box-shadow:var(--shadow);margin-bottom:24px}.hero-copy{padding:30px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.hero-kicker{color:#e8cba3;font-size:12px;font-weight:bold;letter-spacing:1.8px}.hero h2{font-size:clamp(25px,3vw,36px);line-height:1.35;margin:8px 0}.hero p{margin:0;color:#f3e3cf;max-width:440px}.hero-promo{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:9px 13px;border-radius:12px;background:#fff7e8;color:#68452e;font-weight:bold}.hero-photo{min-height:230px;background:#e4c8a5;position:relative}.hero-photo img{width:100%;height:100%;min-height:230px;object-fit:cover;display:block}.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#47352a18,transparent 45%);pointer-events:none}
+.promo-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 28px}.promo-tile{background:var(--white);border:1px solid var(--line);border-radius:15px;padding:13px 14px;box-shadow:0 4px 14px #67482c08}.promo-tile small{display:block;color:var(--muted);font-size:11px}.promo-tile strong{display:block;color:var(--brown);font-size:16px;margin-top:2px}.promo-tile span{font-size:12px;color:var(--green-dark)}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 0 14px}.section-heading h2,.section-title{margin:0;color:var(--brown);font-size:23px}.section-heading p{margin:3px 0 0;color:var(--muted);font-size:13px}.menu-label{grid-column:1/-1;margin:20px 0 0;padding:0 2px 8px;border-bottom:1px solid #e5d3bb;color:#8a633e;font-weight:800;font-size:15px;letter-spacing:.02em}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.product{min-width:0;background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 5px 16px #5b3b1e08;transition:transform .18s ease,box-shadow .18s ease}.product:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.product-photo{height:172px;position:relative;background:linear-gradient(135deg,#f3e3c9,#e4c49a);overflow:hidden}.product-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s ease}.product:hover .product-photo img{transform:scale(1.035)}.photo-tag{position:absolute;top:11px;left:11px;padding:5px 9px;border-radius:999px;background:#fffaf0eF;color:#77512f;font-size:11px;font-weight:800;box-shadow:0 2px 8px #33200f14}.product-body{padding:15px}.product h3{font-size:16px;line-height:1.45;margin:0 0 5px;color:#493425;min-height:46px}.product-meta{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{color:var(--green-dark);font-size:22px;font-weight:800;white-space:nowrap}.muted{font-size:12px;color:var(--muted)}.controls{display:flex;align-items:center;gap:9px;margin-top:13px}.controls button,.qty{height:40px;border:1px solid #e4d1b5;border-radius:11px;padding:7px 12px;font-size:18px}.controls button{width:42px;background:#f6ead7;color:#65462c;cursor:pointer;font-weight:bold}.controls button:hover{background:#ecdbbf}.qty{width:64px;text-align:center;background:#fff;border-color:#e2d3bf}.unit-addon-box{margin-top:11px;padding:10px;border:1px dashed #e2ceb0;border-radius:12px;background:#fffaf2}.unit-title{font-size:12px;font-weight:800;color:#745033;margin-bottom:7px}.addons{display:flex;flex-wrap:wrap;gap:6px}.addon{display:inline-flex;align-items:center;gap:5px;font-size:12px;border:1px solid #e4d6c1;border-radius:999px;padding:6px 8px;background:#fffdf9;cursor:pointer}.addon:has(input:checked){background:#eef3e2;border-color:#9ab46a}.addon input{accent-color:var(--green)}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:20px;box-shadow:0 5px 18px #5b3b1e07}.panel-heading{display:flex;align-items:center;gap:10px;margin:0 0 16px;color:var(--brown);font-size:21px}.panel-heading .heading-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:#f7ead7;font-size:19px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field label{display:block;font-weight:700;margin-bottom:6px;color:#63462f;font-size:13px}.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid #dfceb5;border-radius:11px;font:inherit;background:#fffdf9;color:var(--ink);outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:#b88a5b;box-shadow:0 0 0 3px #b88a5b22}.summary-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed #eadbc7}.summary-row span:first-child{overflow-wrap:anywhere}.total{font-size:28px;font-weight:800;color:var(--green-dark)}.submit{width:100%;margin-top:17px;padding:15px;border:0;border-radius:13px;background:var(--green);color:#fff;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 5px 12px #77933d26}.submit:hover{background:var(--green-dark)}.submit:disabled{opacity:.6;cursor:wait}.note{font-size:12px;color:var(--muted);line-height:1.7}.success{display:none;background:#edf5e2;border:1px solid #c9d9b1;padding:16px;border-radius:12px;margin-top:15px;white-space:pre-line}
+.modal-backdrop{display:none;position:fixed;inset:0;z-index:9999;background:rgba(44,31,21,.62);backdrop-filter:blur(4px);padding:16px;align-items:center;justify-content:center}.modal-backdrop.show{display:flex}.modal{width:100%;max-width:490px;max-height:90vh;overflow:auto;background:#fffaf1;border:1px solid #ead5b5;border-radius:23px;padding:24px;box-shadow:0 24px 80px #1e140c44;animation:popin .18s ease-out}.modal h2{text-align:center;color:var(--brown);margin:4px 0 10px;font-size:24px}.modal .modal-icon{text-align:center;font-size:42px}.modal-copy{text-align:center;line-height:1.7}.modal-list{background:#fffdf9;border:1px solid #eddfca;border-radius:13px;padding:12px;margin:12px 0;max-height:220px;overflow:auto}.modal-list-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed #e7d7b8}.modal-list-row:last-child{border-bottom:0}.modal-total{text-align:center;font-size:29px;font-weight:800;color:var(--green-dark);margin:12px 0}.modal-actions{display:grid;grid-template-columns:1fr;gap:9px;margin-top:16px}.modal-actions button{border:0;border-radius:12px;padding:13px;font:inherit;font-size:15px;font-weight:800;cursor:pointer}.modal-primary{background:var(--green);color:white}.modal-secondary{background:#f0e2cd;color:#674b32}.modal-muted{font-size:12px;color:var(--muted);text-align:center;line-height:1.6}@keyframes popin{from{transform:translateY(8px) scale(.98);opacity:.4}to{transform:translateY(0) scale(1);opacity:1}}
+.sticky-order{display:none}footer{text-align:center;padding:30px 10px 38px;color:#8b7257;font-size:13px}.footer-brand{font-weight:800;color:var(--brown);font-size:16px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr .8fr}.promo-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.product-photo{height:160px}}
+@media(max-width:600px){header{padding:25px 14px 22px}.brand-mark{width:50px;height:50px;border-radius:17px;font-size:27px}.eyebrow{font-size:10px}h1{font-size:35px}.header-tagline{font-size:13px}.header-contact{font-size:12px}.wrap{padding:14px 12px 94px}.hero{grid-template-columns:1fr;min-height:0;border-radius:19px}.hero-copy{padding:23px 20px}.hero h2{font-size:27px}.hero-photo{min-height:155px;max-height:180px}.hero-photo img{min-height:155px;max-height:180px}.promo-strip{gap:8px;margin-bottom:22px}.promo-tile{padding:11px;border-radius:12px}.promo-tile strong{font-size:14px}.promo-tile small{font-size:10px}.section-heading{margin-top:24px;align-items:start}.section-heading h2,.section-title{font-size:20px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product{border-radius:15px}.product-photo{height:124px}.product-body{padding:11px}.product h3{font-size:13px;min-height:39px}.price{font-size:18px}.product-meta{align-items:flex-start;flex-direction:column;gap:0}.controls{gap:6px;margin-top:10px}.controls button{width:35px;height:36px;padding:4px;font-size:17px}.qty{width:48px;height:36px;padding:4px}.unit-addon-box{padding:8px;margin-top:8px}.unit-title{font-size:11px}.addon{font-size:10px;padding:5px 6px}.panel{padding:16px 13px;border-radius:17px}.panel-heading{font-size:18px}.fields{grid-template-columns:1fr;gap:11px}.field input,.field select,.field textarea{padding:11px}.total{font-size:24px}.submit{font-size:16px}.modal{padding:19px 15px;border-radius:19px}.modal h2{font-size:22px}.sticky-order{display:flex;position:fixed;z-index:1000;bottom:0;left:0;right:0;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:#fffdf9f2;backdrop-filter:blur(12px);border-top:1px solid #e6d4b9;box-shadow:0 -6px 22px #56391b12}.sticky-total small{display:block;color:var(--muted);font-size:10px}.sticky-total strong{font-size:19px;color:var(--green-dark)}.sticky-order button{border:0;border-radius:11px;background:var(--green);color:white;font-weight:800;padding:12px 16px}.sticky-order button:disabled{opacity:.6}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header><div class="brand-mark">🍞</div><p class="eyebrow">TOO SWEET TO SHARE</p><h1>ปังโปรด</h1><p class="header-tagline">ขนมปังปิ้งหอม ๆ อบใหม่ อร่อยเต็มคำ</p><div class="header-contact">☎ โทรสั่งขนม <b>095-2923881 (ต้า)</b></div></header>
+<main class="wrap">
+  <section class="hero" aria-label="แนะนำร้านปังโปรด"><div class="hero-copy"><span class="hero-kicker">FRESHLY TOASTED · MADE WITH LOVE</span><h2>ความสุขชิ้นเล็ก ๆ<br>ที่อบอุ่นทุกคำ</h2><p>เลือกหน้าโปรด เพิ่มท็อปปิงได้ตามใจ แล้วให้ปังโปรดทำวันของคุณให้อร่อยขึ้น</p><div class="hero-promo">✨ โปรคุ้ม ๆ เริ่มต้นเพียง 19 บาท</div></div><div class="hero-photo"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85" alt="ขนมปังอบใหม่สีทอง" loading="eager" onerror="this.style.display='none'"></div></section>
+  <section class="promo-strip" aria-label="โปรโมชันร้านปังโปรด"><div class="promo-tile"><small>เมนู 19 บาท</small><strong>2 ชิ้น 35 บาท</strong><span>คละหน้าได้</span></div><div class="promo-tile"><small>เมนู 35 บาท</small><strong>3 ชิ้น 100 บาท</strong><span>คละหน้าได้</span></div><div class="promo-tile"><small>แบบหนีบเนยนม-เนยน้ำตาล</small><strong>2 คู่ 25 บาท</strong><span>คู่ละ 15 บาท</span></div><div class="promo-tile"><small>แบบหนีบเนยถั่วกล้วยฮันนี่</small><strong>2 คู่ 55 บาท</strong><span>คู่ละ 29 บาท</span></div></section>
+  <div class="section-heading"><div><h2>เลือกเมนูที่ชอบ</h2><p>รูปประกอบเพื่อช่วยเลือกเมนู · เลือกท็อปปิงแยกได้ทุกแผ่น</p></div><span class="muted">🍞 อบสดตามออเดอร์</span></div>
+  <div id="products" class="grid"><p>กำลังโหลดเมนู...</p></div>
+  <section class="panel">
+    <h2 class="panel-heading"><span class="heading-icon">📝</span>ข้อมูลสำหรับรับขนม</h2>
+    <div class="fields">
+      <div class="field"><label for="customerName">ชื่อผู้สั่ง *</label><input id="customerName" placeholder="ชื่อเล่นหรือชื่อผู้รับ" required></div>
+      <div class="field"><label for="customerPhone">เบอร์โทรศัพท์ *</label><input id="customerPhone" inputmode="tel" placeholder="เบอร์ที่ติดต่อได้" required></div>
+      <div class="field"><label for="payment">วิธีชำระเงิน</label><select id="payment"><option>เงินสด</option><option>โอนเงิน</option></select></div>
+      <div class="field"><label for="pickupTime">เวลารับขนม</label><input id="pickupTime" placeholder="เช่น 12:00 น. (ถ้ายังไม่แน่ใจเว้นว่างได้)"></div>
+    </div>
+    <div class="field" style="margin-top:12px"><label for="notes">หมายเหตุเพิ่มเติม</label><textarea id="notes" rows="2" placeholder="เช่น ไม่ใส่ซอส / แจ้งรายละเอียดเพิ่มเติม"></textarea></div>
+    <p class="note">หากเลือกโอนเงิน กรุณาติดต่อร้านเพื่อขอข้อมูลบัญชีและยืนยันยอดก่อนโอนนะคะ</p>
+  </section>
+  <section class="panel">
+    <h2 class="panel-heading"><span class="heading-icon">🛒</span>สรุปออเดอร์</h2>
+    <div id="summary"><p class="note">เลือกจำนวนสินค้าเพื่อเริ่มสั่งซื้อ</p></div>
+    <div class="summary-row"><span>ส่วนลดโปรโมชัน</span><b id="discount">0 บาท</b></div>
+    <div class="summary-row" style="border:0"><span>ยอดรวมสุทธิ</span><span class="total" id="total">0 บาท</span></div>
+    <button id="submit" class="submit" onclick="placeOrder()">ยืนยันสั่งขนม 🍞</button>
+    <div id="success" class="success"></div>
+    <p class="note">การกดสั่งซื้อจะบันทึกรายการลง Google Sheets ของร้านโดยอัตโนมัติ ร้านจะติดต่อกลับเพื่อยืนยันออเดอร์</p>
+  </section>
+</main>
+<div id="confirmModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+  <div class="modal"><div class="modal-icon">🧾🍞</div><h2 id="confirmTitle">ตรวจสอบคำสั่งซื้อ</h2><p class="modal-copy">กรุณาตรวจสอบรายการและยอดเงินก่อนกดยืนยัน</p><div id="confirmItems" class="modal-list"></div><div class="modal-total" id="confirmTotal">0 บาท</div><p class="modal-muted" id="confirmCustomer"></p><div class="modal-actions"><button id="confirmSubmit" class="modal-primary" onclick="confirmAndSubmit()">ยืนยันสั่งซื้อ</button><button class="modal-secondary" onclick="closeConfirmModal()">กลับไปแก้ไขรายการ</button></div></div>
+</div>
+<div id="successModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="modal"><div class="modal-icon">🎉🍞</div><h2 id="successTitle" style="color:#6c911d">สั่งซื้อสำเร็จ!</h2><p class="modal-copy">บันทึกคำสั่งซื้อเรียบร้อยแล้ว</p><div class="modal-list"><div class="modal-list-row"><span>เลขออเดอร์</span><b id="successOrderId"></b></div><div class="modal-list-row"><span>ยอดสุทธิ</span><b id="successTotal"></b></div><div class="modal-list-row"><span>ส่วนลด</span><b id="successDiscount"></b></div></div><p class="modal-copy">ร้านจะติดต่อกลับเพื่อยืนยันออเดอร์อีกครั้ง<br>โทร 095-2923881 (ต้า)</p><div class="modal-actions"><button class="modal-primary" onclick="startNewOrder()">🍞 สั่งเพิ่มอีกออเดอร์</button><button class="modal-secondary" onclick="startNewOrder()">กลับไปหน้าเมนู</button></div><p class="modal-muted">ระบบจะกลับไปหน้าเมนูใหม่โดยอัตโนมัติใน <span id="autoCountdown">8</span> วินาที</p></div>
+</div>
+<div class="sticky-order"><div class="sticky-total"><small>ยอดรวมสุทธิ</small><strong id="stickyTotal">0 บาท</strong></div><button onclick="scrollToSummary()">ดูตะกร้า / สั่งซื้อ</button></div>
+<footer><div class="footer-brand">🍞 ปังโปรด</div>ขอบคุณที่ให้ขนมของเราเป็นส่วนหนึ่งของวันดี ๆ 💛<br><span>TOO SWEET TO SHARE · 095-2923881</span></footer>
+<script>
+let store={products:[],addons:[]};
+const qtys={};
+const unitAddons={};
+const productPhotos={
+ butter_milk:'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=800&q=82',
+ butter_sugar:'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=82',
+ strawberry:'https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=crop&w=800&q=82',
+ choco:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=82',
+ garlic_butter:'https://images.unsplash.com/photo-1619531040576-f9416740661f?auto=format&fit=crop&w=800&q=82',
+ nutella_banana:'https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=800&q=82',
+ peanut_banana_honey:'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=82',
+ banana_ovaltine:'https://images.unsplash.com/photo-1505253716362-afaddr1d06b3?auto=format&fit=crop&w=800&q=82',
+ pizza_crab:'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=82',
+ pizza_ham_chicken:'https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=800&q=82',
+ corn_cheese_mayo:'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=82',
+ garlic_cheese:'https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=82',
+ sandwich_milk_sugar:'https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&w=800&q=82',
+ sandwich_peanut_banana_honey:'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=82'
+};
+function scrollToSummary(){document.getElementById('summary').scrollIntoView({behavior:'smooth',block:'center'});}
+function money(n){return Number(n).toLocaleString('th-TH')+' บาท'}
+function load(){
+ google.script.run.withSuccessHandler(data=>{store=data;renderProducts();updateSummary()})
+ .withFailureHandler(err=>{document.getElementById('products').innerHTML='<p>โหลดเมนูไม่สำเร็จ กรุณารีเฟรชหน้าเว็บ</p>';console.error(err)}).getStoreData();
+}
+function renderProducts(){
+ const root=document.getElementById('products');root.innerHTML='';let last='';
+ store.products.forEach(p=>{
+  if(p.group!==last){const group=document.createElement('h3');group.className='menu-label';group.textContent=p.group;root.appendChild(group);last=p.group}
+  qtys[p.id]=qtys[p.id]||0;
+  const card=document.createElement('article');card.className='product';
+  const photo=document.createElement('div');photo.className='product-photo';const img=document.createElement('img');img.src=productPhotos[p.id]||productPhotos.butter_milk;img.alt=p.name;img.loading='lazy';img.onerror=function(){this.style.display='none'};photo.appendChild(img);const tag=document.createElement('span');tag.className='photo-tag';tag.textContent=p.price===19?'เมนูขายดี':(p.price===35?'ชีสแน่น อิ่มคุ้ม':'เมนูแนะนำ');photo.appendChild(tag);card.appendChild(photo);
+  const body=document.createElement('div');body.className='product-body';
+  const title=document.createElement('h3');title.textContent=p.name;body.appendChild(title);
+  const meta=document.createElement('div');meta.className='product-meta';const price=document.createElement('div');price.className='price';price.textContent=money(p.price);meta.appendChild(price);const unit=document.createElement('span');unit.className='muted';unit.textContent=p.id.startsWith('sandwich_')?'ต่อคู่':'ต่อชิ้น';meta.appendChild(unit);body.appendChild(meta);
+  const controls=document.createElement('div');controls.className='controls';
+  const minus=document.createElement('button');minus.textContent='−';minus.setAttribute('aria-label','ลดจำนวน');minus.onclick=()=>setQty(p.id,qtys[p.id]-1);
+  const input=document.createElement('input');input.className='qty';input.type='number';input.min='0';input.max='99';input.value=qtys[p.id];input.id='qty-'+p.id;input.onchange=()=>setQty(p.id,input.value);
+  const plus=document.createElement('button');plus.textContent='+';plus.setAttribute('aria-label','เพิ่มจำนวน');plus.onclick=()=>setQty(p.id,qtys[p.id]+1);
+  controls.append(minus,input,plus);body.appendChild(controls);
+  for(let i=0;i<qtys[p.id];i++){
+   const box=document.createElement('div');box.className='unit-addon-box';
+   const unitTitle=document.createElement('div');unitTitle.className='unit-title';unitTitle.textContent='แผ่นที่ '+(i+1)+' · เลือกท็อปปิงของแผ่นนี้';box.appendChild(unitTitle);
+   const addons=document.createElement('div');addons.className='addons';
+   store.addons.forEach(a=>{
+    const key=unitAddonKey(p.id,i,a.id);const label=document.createElement('label');label.className='addon';
+    const cb=document.createElement('input');cb.type='checkbox';cb.checked=!!unitAddons[key];cb.onchange=()=>{unitAddons[key]=cb.checked;updateSummary()};
+    label.append(cb,document.createTextNode(a.name+' +'+a.price));addons.appendChild(label);
+   });
+   box.appendChild(addons);body.appendChild(box);
+  }
+  card.appendChild(body);root.appendChild(card);
+ });
+}
+function unitAddonKey(productId,unitIndex,addonId){return productId+'__unit'+unitIndex+'__'+addonId}
+function getUnitAddons(productId,unitIndex){return store.addons.filter(a=>!!unitAddons[unitAddonKey(productId,unitIndex,a.id)]).map(a=>a.id)}
+function setQty(id,value){
+ const oldQty=qtys[id]||0;qtys[id]=Math.max(0,Math.min(99,parseInt(value,10)||0));
+ // ล้างตัวเลือกท็อปปิงของแผ่นที่ถูกลบออกจากจำนวน
+ if(qtys[id]<oldQty){for(let i=qtys[id];i<oldQty;i++)store.addons.forEach(a=>delete unitAddons[unitAddonKey(id,i,a.id)])}
+ renderProducts();updateSummary();
+}
+function calc(){
+ let rows=[],subtotal=0;
+ store.products.forEach(p=>{
+  const qty=qtys[p.id]||0;if(!qty)return;
+  const units=[];let line=p.price*qty;
+  for(let i=0;i<qty;i++){
+   const addons=getUnitAddons(p.id,i);const extra=addons.reduce((sum,id)=>sum+store.addons.find(a=>a.id===id).price,0);line+=extra;
+   units.push({addons,extra});
+  }
+  subtotal+=line;rows.push({id:p.id,name:p.name,qty,units,line,price:p.price});
+ });
+ const getQty=ids=>rows.filter(r=>ids.includes(r.id)).reduce((s,r)=>s+r.qty,0);
+ const qty19=getQty(['butter_milk','butter_sugar','strawberry','choco','garlic_butter']);
+ const qty35=getQty(['pizza_crab','pizza_ham_chicken','corn_cheese_mayo','garlic_cheese']);
+ const qtySandwichMilkSugar=getQty(['sandwich_milk_sugar']);const qtySandwichPeanut=getQty(['sandwich_peanut_banana_honey']);
+ const discount=Math.floor(qty19/2)*3+Math.floor(qty35/3)*5+Math.floor(qtySandwichMilkSugar/2)*5+Math.floor(qtySandwichPeanut/2)*3;
+ return {rows,subtotal,discount,total:subtotal-discount};
+}
+function addonDescription(ids){return ids.map(id=>store.addons.find(a=>a.id===id).name).join(', ')}
+function updateSummary(){
+ const c=calc(),root=document.getElementById('summary');root.innerHTML='';
+ if(!c.rows.length)root.innerHTML='<p class="note">เลือกจำนวนสินค้าเพื่อเริ่มสั่งซื้อ</p>';
+ c.rows.forEach(r=>{
+  r.units.forEach((unit,i)=>{
+   const div=document.createElement('div');div.className='summary-row';const left=document.createElement('span');
+   left.textContent=r.name+(r.qty>1?' · แผ่นที่ '+(i+1):'')+(unit.addons.length?' (เพิ่ม '+addonDescription(unit.addons)+')':'');
+   const right=document.createElement('b');right.textContent=money(r.price+unit.extra);div.append(left,right);root.appendChild(div);
+  });
+ });
+ document.getElementById('discount').textContent='−'+money(c.discount);document.getElementById('total').textContent=money(c.total);const sticky=document.getElementById('stickyTotal');if(sticky)sticky.textContent=money(c.total);
+}
+let isSubmitting=false;
+let pendingOrder=null;
+let autoResetInterval=null;
+let autoResetTimeout=null;
+function placeOrder(){
+ if(isSubmitting)return;
+ const c=calc();if(!c.rows.length){alert('กรุณาเลือกขนมอย่างน้อย 1 รายการ');return}
+ const name=document.getElementById('customerName').value.trim(),phone=document.getElementById('customerPhone').value.trim();
+ if(!name||!phone){alert('กรุณากรอกชื่อและเบอร์โทรศัพท์');return}
+ pendingOrder={
+  customerName:name,customerPhone:phone,
+  payment:document.getElementById('payment').value,
+  pickupTime:document.getElementById('pickupTime').value.trim(),
+  notes:document.getElementById('notes').value.trim(),
+  requestId:makeRequestId(),
+  items:c.rows.map(r=>({id:r.id,qty:r.qty,units:r.units.map(u=>({addons:u.addons}))}))
+ };
+ const items=document.getElementById('confirmItems');items.innerHTML='';
+ c.rows.forEach(r=>{r.units.forEach((u,i)=>{const row=document.createElement('div');row.className='modal-list-row';const left=document.createElement('span');left.textContent=r.name+(r.qty>1?' · แผ่นที่ '+(i+1):'')+(u.addons.length?' (เพิ่ม '+addonDescription(u.addons)+')':'');const right=document.createElement('b');right.textContent=money(r.price+u.extra);row.append(left,right);items.appendChild(row)})});
+ if(c.discount){const row=document.createElement('div');row.className='modal-list-row';const left=document.createElement('span');left.textContent='ส่วนลดโปรโมชัน';const right=document.createElement('b');right.textContent='−'+money(c.discount);row.append(left,right);items.appendChild(row)}
+ document.getElementById('confirmTotal').textContent=money(c.total);
+ document.getElementById('confirmCustomer').textContent='ผู้สั่ง: '+name+' · โทร '+phone+' · ชำระเงิน: '+pendingOrder.payment;
+ document.getElementById('confirmModal').classList.add('show');document.body.style.overflow='hidden';
+}
+function makeRequestId(){return 'PPREQ_'+Date.now()+'_'+Math.random().toString(36).slice(2,12)}
+function closeConfirmModal(){if(isSubmitting)return;document.getElementById('confirmModal').classList.remove('show');document.body.style.overflow=''}
+function confirmAndSubmit(){
+ if(isSubmitting||!pendingOrder)return;
+ isSubmitting=true;
+ const submitBtn=document.getElementById('submit'),confirmBtn=document.getElementById('confirmSubmit');
+ submitBtn.disabled=true;submitBtn.textContent='กำลังบันทึกออเดอร์...';confirmBtn.disabled=true;confirmBtn.textContent='กำลังบันทึก...';
+ google.script.run.withSuccessHandler(res=>{
+  isSubmitting=false;pendingOrder=null;submitBtn.disabled=false;submitBtn.textContent='ยืนยันสั่งขนม 🍞';confirmBtn.disabled=false;confirmBtn.textContent='ยืนยันสั่งซื้อ';
+  document.getElementById('confirmModal').classList.remove('show');
+  document.getElementById('successOrderId').textContent=res.orderId;
+  document.getElementById('successTotal').textContent=money(res.total);
+  document.getElementById('successDiscount').textContent=money(res.promoDiscount||0);
+  document.getElementById('successModal').classList.add('show');document.body.style.overflow='hidden';
+  let seconds=8;document.getElementById('autoCountdown').textContent=seconds;
+  clearInterval(autoResetInterval);clearTimeout(autoResetTimeout);
+  autoResetInterval=setInterval(()=>{seconds--;document.getElementById('autoCountdown').textContent=Math.max(0,seconds);if(seconds<=0)clearInterval(autoResetInterval)},1000);
+  autoResetTimeout=setTimeout(startNewOrder,8000);
+ }).withFailureHandler(err=>{
+  isSubmitting=false;submitBtn.disabled=false;submitBtn.textContent='ยืนยันสั่งขนม 🍞';confirmBtn.disabled=false;confirmBtn.textContent='ยืนยันสั่งซื้อ';
+  alert((err&&err.message)||'บันทึกไม่สำเร็จ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง');
+ }).submitOrder(pendingOrder);
+}
+function startNewOrder(){
+ clearInterval(autoResetInterval);clearTimeout(autoResetTimeout);isSubmitting=false;pendingOrder=null;
+ document.getElementById('confirmModal').classList.remove('show');document.getElementById('successModal').classList.remove('show');document.body.style.overflow='';
+ store.products.forEach(p=>{const n=qtys[p.id]||0;for(let i=0;i<n;i++)store.addons.forEach(a=>delete unitAddons[unitAddonKey(p.id,i,a.id)]);qtys[p.id]=0});
+ document.getElementById('pickupTime').value='';document.getElementById('notes').value='';
+ const btn=document.getElementById('submit');btn.disabled=false;btn.textContent='ยืนยันสั่งขนม 🍞';
+ renderProducts();updateSummary();window.scrollTo({top:0,behavior:'smooth'});
+}
+
+load();
+</script>
+</body>
+</html>
